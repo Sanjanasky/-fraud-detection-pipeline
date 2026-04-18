@@ -1,0 +1,25 @@
+kafka:
+  bootstrap_servers: "localhost:9092"
+  topic_transactions: "transactions"
+  topic_flagged: "flagged_transactions"
+  consumer_group: "fraud_detectors"
+
+spark:
+  app_name: "FraudDetectionPipeline"
+  batch_interval_seconds: 10
+  checkpoint_dir: "/tmp/spark_checkpoint"
+
+fraud_detection:
+  amount_zscore_threshold: 3.0
+  velocity_window_minutes: 10
+  max_transactions_per_window: 5
+
+llm:
+  model: "gpt-4o-mini"
+  max_tokens: 300
+
+bigquery:
+  project: "your-gcp-project"
+  dataset: "fraud_detection"
+  table_transactions: "transactions"
+  table_flagged: "flagged_with_explanation"
