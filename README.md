@@ -218,18 +218,6 @@ The LLM is not making fraud decisions — the rules do that. The LLM is used whe
 - BigQuery writer is synchronous. Production would use streaming inserts via the BigQuery Storage Write API.
 ---
  
-## Resume bullets
- 
-> Built real-time fraud detection pipeline ingesting transaction events via Apache Kafka, processed with PySpark Structured Streaming to detect amount spikes (z-score) and velocity anomalies
- 
-> Integrated GPT-4o-mini to generate natural language explanations for flagged transactions, enabling fraud analysts to review cases faster vs raw alert data
- 
-> Orchestrated daily batch reconciliation and data quality checks using Apache Airflow DAG with retry logic, SLA monitoring, and Great Expectations validation
- 
-> Designed for GCP deployment (Kafka → Dataproc → BigQuery), achieving sub-500ms end-to-end latency on 500K+ event test dataset
- 
----
- 
 ## Future improvements
  
 - Replace z-score join with proper stateful streaming using `mapGroupsWithState`
